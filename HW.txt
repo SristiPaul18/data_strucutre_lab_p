@@ -88,25 +88,118 @@ int a[2][2][2][2] = {
 
 
 
-#include <iostream>
+
+/*Write a code that will create custom ciphers (encoded words) on strings.
+Follow this procedure:
+Write a function named encode that takes TWO parameters, a string s and an integer j.
+Skip j number of characters in the string and increase the ASCII value of the next character by 2.
+Perform step (ii) throughout the string.
+Return the converted string from encode function*/
+
+
+#include<iostream>
 using namespace std;
-struct employee {
-   int empID;
-   char name[50];
-   int salary;
-   char department[50];
-};
-int main() {
-   struct employee emp[3] = { { 1 , "Harry" , 20000 , "Finance" } , { 2 , "Sally" , 50000 , "HR" } ,    { 3 , "John" , 15000 , "Technical" } };
-   cout<<"The employee information is given as follows:"<<endl;
-   cout<<endl;
-   for(int i=0; i<3;i++) {
-      cout<<"Employee ID: "<<emp[i].empID<<endl;
-      cout<<"Name: "<<emp[i].name<<endl;
-      cout<<"Salary: "<<emp[i].salary<<endl;
-      cout<<"Department: "<<emp[i].department<<endl;
-      cout<<endl;
-   }
-   return 0;
+
+int a;
+int j;
+string str;
+int i;
+
+string encode(string s, int j)
+{
+    a = s.length();
+    for(i=j; i<a; i=i+j+1)
+        {
+            s[i]= s[i]+2;
+        }
+    return s;
 }
 
+int main()
+{
+    while(1)
+    {
+        cout<<"Write The Message That You Want To Be Encoded:"<<endl;
+        getline(cin, str);
+        cout<<endl;
+
+        cout<<"What Number Would You Want To Make Your Message Encoded?"<<endl;
+        cin >> j;
+        cout<<endl;
+
+        string NewString = encode(str,j);
+        cout<<"The Encoded Message Now Is:";
+        cout<<endl;
+        cout<<NewString<<endl;
+
+        break;
+    }
+
+    return 0;
+}
+
+
+
+/*Write a program with appropriate data structure to keep records of 10 students. Each student will have the following information:
+Unique ID (you can use integer for this)
+Number of Credits Completed
+CGPA
+
+Print all the student’s ID whose CGPA is more than 3.75.
+Print all the student’s ID who has completed more than 50 credits.
+*/
+
+#include<iostream>
+using namespace std;
+
+struct student
+{
+    int id;
+    int credit;
+    float cgpa;
+};
+
+int main()
+{
+    cout<<"Enter The Details Of First 10 Students"<<endl;
+    cout<<"In The Order Of"<<endl;
+    cout<<"Their ID, The Number Of Credits They Completed and Their Present CGPA"<<endl;
+    cout<<endl;
+
+    student s[10];
+    for(int i=0; i<10; i++)
+    {
+        cout<< "Student "<<i+1<<endl;
+        cin>>s[i].id;
+        cin>>s[i].credit;
+        cin>>s[i].cgpa;
+        cout<<endl;
+    }
+
+    cout<<endl;
+
+    for(int i=0; i < 10;i++)
+        {
+            cout<<"Student "<<i+1<<"'s Details"<< endl;
+            cout<<"                    ID: "<<s[i].id<<endl;
+            cout<<"                    Credits Completed: "<<s[i].credit<<endl;
+            cout<<"                    CGPA: "<<s[i].cgpa<<endl;
+            cout<<endl;
+        }
+
+
+    cout<<endl;
+    int i=0;
+    while (i<10)
+    {
+        if(s[i].cgpa>3.75 && s[i].credit>50)
+            {
+                cout<<"Student "<<s[i].id<<"'s"<<" Credit Is:"<<" "<<s[i].credit<<endl;
+                cout<<"And Their "<<" CGPA Is: "<<s[i].cgpa<<endl;
+                i++;
+            }
+        break;
+    }
+    cout<<endl;
+    cout<<endl;
+}
