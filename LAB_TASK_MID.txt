@@ -1,0 +1,181 @@
+#include <iostream>
+using namespace std;
+
+class Product {
+
+public:
+
+char Pro_Name;
+int Pro_Id;
+char Pro_Cat;
+double Unit_Price;
+
+Product(){}
+
+Product(char a,int b,char c,double d)
+{
+
+Pro_Name=a;
+Pro_Id=b;
+Pro_Cat=c;
+Unit_Price=d;
+}
+
+void showProduct()
+        {
+        cout<<"Name of the Product "<<Pro_Name<<endl;
+
+cout<<"Product ID  "<<Pro_Id<<endl;
+
+cout<<"Which Category?  "<<Pro_Cat<<endl;
+
+cout<<"Product's Price  "<<Unit_Price<<endl;
+
+cout<<endl;
+}
+};
+
+
+int main(){
+
+char Pro_Name;
+int Pro_Id;
+char Pro_Cat;
+double Unit_Price;
+
+Product *pro= new Product[2];
+
+
+for (int i =0; i<5; i++){
+cout<<"Name of the Product "<<endl;
+cin>>Pro_Name;
+
+cout<<"Product ID  "<<endl;
+cin>>Pro_Id;
+
+cout<<"Which Category?  "<<endl;
+cin >> Pro_Cat;
+#include <iostream>
+using namespace std;
+
+class Product {
+
+public:
+
+char Pro_Name;
+int Pro_Id;
+char Pro_Cat;
+double Unit_Price;
+
+Product(){}
+
+Product(char a,int b,char c,double d)
+{
+Pro_Name=a;
+Pro_Id=b;
+Pro_Cat=c;
+Unit_Price=d;
+}
+
+void showProduct()
+        {
+            cout<<"Name of the Product "<<Pro_Name<<endl;
+            cout<<"Product ID  "<<Pro_Id<<endl;
+            cout<<"Which Category?  "<<Pro_Cat<<endl;
+            cout<<"Product's Price  "<<Unit_Price<<endl;
+            cout<<endl;
+        }
+};
+
+
+int main()
+{
+    char Pro_Name;
+    int Pro_Id;
+    char Pro_Cat;
+    double Unit_Price;
+
+    Product *pro= new Product[2];
+
+    for (int i =0; i<5; i++)
+        {
+            cout<<"Name of the Product "<<endl;
+            cin>>Pro_Name;
+
+            cout<<"Product ID  "<<endl;
+            cin>>Pro_Id;
+
+            cout<<"Which Category?  "<<endl;
+            cin >> Pro_Cat;
+
+            cout<<"Product's Price  "<<endl;
+            cin>>Unit_Price;
+
+            pro[i] = Product(Pro_Name,Pro_Id,Pro_Cat,Unit_Price);
+        }
+
+cout<<endl;
+cout<<endl;
+
+    for (int i =0; i<5; i++)
+        {
+            pro[i].showProduct();
+        }
+
+
+float temp;
+for (int i=0; i<(5-1); i++)
+{
+    for (int j=0; j<(5-i-1); j++)
+        {
+            if(pro[j].Unit_Price > pro[j+1].Unit_Price)
+            {
+                temp = pro[j].Unit_Price;
+                pro[j].Unit_Price = pro[j+1].Unit_Price;
+                pro[j+1].Unit_Price=temp;
+            }
+        }
+   cout<<"STEPS for Bubble Sort are: "<<endl;
+    cout<<"Steps "<<i+1<<": ";
+    for(int j=0; j<5; j++)
+        cout<<pro[j].Unit_Price<<" ";
+        cout<<endl;
+}
+cout<<endl;
+cout<<"The Bubble Sort is: "<<endl;
+for (int i=0; i<5;i++)
+    {
+    cout<<pro[i].Unit_Price<<"   ";
+    }
+ cout<<endl;
+
+int mind=0;
+
+for(int i=0; i<5; i++)
+    {
+        mind = i;
+
+        for(int j=i+1; j<5; j++)
+        {
+            if(pro[mind].Unit_Price > pro[j].Unit_Price)
+            {
+                mind = j;
+            }
+        }
+
+        temp = pro[mind].Unit_Price;
+        pro[mind].Unit_Price = pro[i].Unit_Price;
+        pro[i].Unit_Price = temp;
+    }
+
+
+cout<<endl;
+
+cout<<"The Selection Sort is: "<<endl;
+    for(int i=0; i<5;i++)
+        {
+        cout<<pro[i].Unit_Price<<" ";
+        }
+
+return 0;
+}
